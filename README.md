@@ -110,7 +110,174 @@ Used for:
 
 ---
 
+Here’s a fully updated and polished README based on your instructions, combining your original content with the detailed system setup instructions:
+
+---
+
+# ⚙️ Flood UAV Simulation Setup
+
+## 1. System Requirements
+
+* Ubuntu 20.04 or 22.04 (compatible Linux distribution)
+* ROS 2 Humble
+* PX4 Autopilot
+* Gazebo Classic
+* Python 3.8+
+* NVIDIA Jetson Nano (for deployment)
+
+---
+
+## 2. System Setup Instructions
+
+### 2.1 Update Locale
+
+To avoid locale-related issues, run:
+
+```bash
+sudo apt update
+sudo apt install locales
+sudo locale-gen en_US en_US.UTF-8
+sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
+```
+
+---
+
+### 2.2 Add ROS 2 Package Repository
+
+```bash
+sudo apt update && sudo apt install -y software-properties-common
+sudo add-apt-repository universe
+sudo apt update && sudo apt install curl -y
+```
+
+---
+
+### 2.3 Install ROS 2 Humble Desktop
+
+```bash
+sudo apt update && sudo apt install ros-humble-desktop
+```
+
+---
+
+### 2.4 Source ROS 2 Environment
+
+```bash
+source /opt/ros/humble/setup.bash
+```
+
+To make it permanent:
+
+```bash
+echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
+source ~/.bashrc
+```
+
+---
+
+### 2.5 Install Gazebo Simulator
+
+```bash
+sudo apt update && sudo apt install gazebo
+```
+
+---
+
+### 2.6 Install ROS 2 Gazebo Plugins
+
+```bash
+sudo apt install ros-humble-gazebo-ros-pkgs
+```
+
+---
+
+### 2.7 Verify Installation
+
+```bash
+gazebo
+```
+
+This should launch the Gazebo simulator window.
+
+---
+
+### 2.8 Clone PX4 Autopilot Repository
+
+Navigate to your workspace and clone PX4:
+
+```bash
+cd ~/TEEP/src
+git clone --recursive https://github.com/PX4/PX4-Autopilot.git
+```
+
+Install PX4 dependencies and build:
+
+```bash
+cd PX4-Autopilot
+make px4_sitl gazebo
+```
+
+Access PX4 Gazebo simulation models and worlds:
+
+```bash
+cd ~/TEEP/src/PX4-Autopilot/Tools/simulation/gazebo-classic
+./sitl_gazebo-classic
+```
+
+You can add or find new models/worlds in the `models` and `worlds` directories.
+
+---
+
+## 4. Setup ROS 2 Workspace
+
+```bash
+cd ros2_ws
+colcon build
+source install/setup.bash
+```
+
+---
+
+## 5. Install Python Dependencies
+
+```bash
+pip install torch torchvision opencv-python numpy
+pip install paho-mqtt
+```
+
+---
+
+## 6. PX4 SITL Setup
+
+```bash
+cd PX4-Autopilot
+make px4_sitl gazebo
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## ⚙️ Installation
+
+
+
+
 
 ### 1. System Requirements
 
