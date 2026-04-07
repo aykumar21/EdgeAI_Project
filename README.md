@@ -470,31 +470,6 @@ The system uses:
 
 ---
 
-### 🧠 Inference Pipeline
-
-The node performs:
-
-1. **Semantic Segmentation**
-   - Processes live UAV camera feed  
-   - Generates flood masks in real time  
-
-2. **Flood Severity Estimation**
-   - Image divided into **4×4 grid**
-   - Most affected region selected  
-
-3. **Coordinate Publishing**
-   - Published to ROS 2 topic:
-     ```
-     /uav/flood_detection
-     ```
-   - Forwarded via **MQTT** to Ground Control Station  
-
-4. **Waypoint Generation**
-   - Real-Time GeoTask Dispatcher converts coordinates → PX4 waypoints  
-   - Enables autonomous mission updates  
-
----
-
 ### 🚀 Optimization Strategy
 
 Baseline PyTorch FP32 inference was too slow for real-time UAV operation.
