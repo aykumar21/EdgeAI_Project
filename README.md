@@ -342,6 +342,9 @@ Traditional waypoint planning is manual and slow, limiting responsiveness during
 
 ### 🔄 System Workflow
 
+<img width="312" height="351" alt="mqtt_to_px4" src="https://github.com/user-attachments/assets/c057bb44-711d-48b4-98b9-eea6e1615fb5" />
+
+
 1. **Flood Detection (Onboard AI)**
    - Images from the UAV camera are processed on the **Jetson Nano**
    - Deep learning models detect flood regions in real time
@@ -510,6 +513,8 @@ Thread 3 → GPS Conversion + Logging
 - Average: **2.4 ms**  
 - Spikes: **4.16 ms – 5.35 ms**
 
+<img width="800" height="500" alt="new" src="https://github.com/user-attachments/assets/b90d279d-5016-49d1-a559-3d8b7fcb2c76" />
+
 ---
 
 ## 🧪 Model Evaluation
@@ -538,6 +543,10 @@ Preprocessing → Inference → GPS Conversion
 - GPS: 4.2 ms  
 - **Total: ~1260 ms (~0.7 FPS)**  
 
+<img width="388" height="338" alt="dl_baseline" src="https://github.com/user-attachments/assets/4df4bef4-5345-4ce8-91d8-c5b090ca6646" />
+
+
+
 **U-Net**
 - Preprocessing: 13.8 ms  
 - Inference: 324.6 ms  
@@ -546,7 +555,9 @@ Preprocessing → Inference → GPS Conversion
 
 ❗ Inference accounts for **>95% of total latency**
 
----
+<img width="392" height="339" alt="unet_baseline" src="https://github.com/user-attachments/assets/94571b08-f282-48cc-ba6e-b2c9bbd2c809" />
+
+
 
 ### B. Optimized (TensorRT FP16)
 
@@ -560,9 +571,14 @@ Preprocessing → Inference → GPS Conversion
 - 1353.5 ms → **15.62 ms**
 - ✅ **98.68% improvement**
 
+<img width="387" height="352" alt="dl_optimized" src="https://github.com/user-attachments/assets/b5208877-ef8b-4966-ad2f-c292419a5438" />
+
 - **U-Net**
 - 355.63 ms → **15.40 ms**
 - ✅ **95.82% improvement**
+
+<img width="488" height="437" alt="unet_optimized" src="https://github.com/user-attachments/assets/09c73d44-6377-4042-8d34-e005bd788124" />
+
 
 ---
 
@@ -604,9 +620,6 @@ This module, combined with the **Real-Time GeoTask Dispatcher**, forms the **cor
 
 ---
 
-
-
-
 ## ⚡ Performance & Latency
 
 ### 🧠 Inference Performance
@@ -616,12 +629,21 @@ This module, combined with the **Real-Time GeoTask Dispatcher**, forms the **cor
 | DeepLabv3+ | 1353 ms | 15.6 ms          | **98.68%**  |
 | U-Net      | 355 ms  | 15.4 ms          | **95.82%**  |
 
+<img width="1000" height="600" alt="deeplab_infer" src="https://github.com/user-attachments/assets/f3e81cff-1c15-4e62-80e3-9afd0d7cc493" />
+<img width="1000" height="600" alt="unet_infer" src="https://github.com/user-attachments/assets/88fb96e9-9bc3-4aa9-aecb-3991a14b8046" />
+
+
+
 ---
 
 ### ⏱️ End-to-End Latency
 
 * Total pipeline: **0.09 – 0.40 s**
 * Real-time performance: **40–50 FPS**
+
+<img width="478" height="358" alt="mqtt_to_px4_latencies" src="https://github.com/user-attachments/assets/1bd07291-f581-462a-bf07-c92209bd08c1" />
+<img width="1536" height="754" alt="comm_latency" src="https://github.com/user-attachments/assets/ac3dc1bb-dd31-4748-a1d2-0c18d7ced9c3" />
+
 
 ---
 
