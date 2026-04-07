@@ -460,6 +460,177 @@ TAKEOFF → WAYPOINTS → RTL
 
 ---
 
+## ⚡ Latency-Optimized Real-Time Inference on Jetson
+
+A ROS 2 node (`deeplab_inference_node.py`) is deployed on the **NVIDIA Jetson Nano** to enable real-time flood segmentation for autonomous UAV navigation.
+
+The system uses:
+- **DeepLabv3+ (MobileNetV3 backbone)** trained on real-world flood data  
+- Designed for **real-world deployment**, not just simulation  
+
+---
+
+### 🧠 Inference Pipeline
+
+The node performs:
+
+1. **Semantic Segmentation**
+   - Processes live UAV camera feed  
+   - Generates flood masks in real time  
+
+2. **Flood Severity Estimation**
+   - Image divided into **4×4 grid**
+   - Most affected region selected  
+
+3. **Coordinate Publishing**
+   - Published to ROS 2 topic:
+     ```
+     /uav/flood_detection
+     ```
+   - Forwarded via **MQTT** to Ground Control Station  
+
+4. **Waypoint Generation**
+   - Real-Time GeoTask Dispatcher converts coordinates → PX4 waypoints  
+   - Enables autonomous mission updates  
+
+---
+
+### 🚀 Optimization Strategy
+
+Baseline PyTorch FP32 inference was too slow for real-time UAV operation.
+
+#### ❌ Baseline Limitations
+- Low FPS  
+- High latency  
+- CPU-bound execution  
+
+#### ✅ Applied Optimizations
+
+- PyTorch → ONNX → **TensorRT FP16 conversion**  
+- GPU-accelerated inference  
+- Multi-threaded pipeline using `ReentrantCallbackGroup()`  
+- CUDA stream parallelism  
+- Zero-copy buffer reuse  
+- Pre-allocated CUDA memory  
+
+---
+
+### 🔄 Optimized Execution Pipeline
+
+
+Thread 1 → Image Preprocessing
+Thread 2 → AI Inference
+Thread 3 → GPS Conversion + Logging
+
+
+✔ Parallel execution  
+✔ Reduced memory movement  
+✔ Lower latency  
+
+---
+
+## 📊 Latency Measurements
+
+### 📷 Camera Latency
+- Average: **2.4 ms**  
+- Spikes: **4.16 ms – 5.35 ms**
+
+---
+
+## 🧪 Model Evaluation
+
+Two segmentation models were evaluated:
+
+- **DeepLabv3+** (real-world dataset)  
+- **U-Net** (Gazebo simulation dataset)  
+
+Each tested under:
+
+### A. Baseline (Non-Optimized)
+
+- CPU-only execution  
+- PyTorch FP32  
+- Sequential pipeline:
+
+Preprocessing → Inference → GPS Conversion
+
+
+#### ⏱ Latency Breakdown
+
+**DeepLabv3+**
+- Preprocessing: 13.2 ms  
+- Inference: 1243.6 ms  
+- GPS: 4.2 ms  
+- **Total: ~1260 ms (~0.7 FPS)**  
+
+**U-Net**
+- Preprocessing: 13.8 ms  
+- Inference: 324.6 ms  
+- GPS: 4.5 ms  
+- **Total: ~343 ms (~2.6 FPS)**  
+
+❗ Inference accounts for **>95% of total latency**
+
+---
+
+### B. Optimized (TensorRT FP16)
+
+- GPU-accelerated execution  
+- Multi-threaded asynchronous pipeline  
+- CUDA parallelization  
+
+#### ⚡ Performance Gains
+
+- **DeepLabv3+**
+- 1353.5 ms → **15.62 ms**
+- ✅ **98.68% improvement**
+
+- **U-Net**
+- 355.63 ms → **15.40 ms**
+- ✅ **95.82% improvement**
+
+---
+
+## 📈 Latency Comparison Table
+
+| Model        | Version    | Min (ms) | Avg (ms) | Max (ms) |
+|-------------|-----------|----------|----------|----------|
+| DeepLabv3+  | Baseline  | 1263     | 1353.5   | 1466     |
+| DeepLabv3+  | Optimized | 6.65     | 15.62    | 60.35    |
+| U-Net       | Baseline  | 300.77   | 355.63   | 469.72   |
+| U-Net       | Optimized | 5.75     | 15.40    | 26.13    |
+
+---
+
+## 📌 Key Observations
+
+- Inference is the primary bottleneck in baseline (>95%)  
+- TensorRT enables **real-time performance (<20 ms)**  
+- DeepLabv3+ preferred for:
+- Better real-world segmentation accuracy  
+
+- U-Net preferred for:
+- Stable high-frequency simulation  
+
+---
+
+## 🔍 Inference Latency Insights
+
+- Preprocessing (~13 ms) and GPS conversion (~4 ms)  
+originally contributed **<2% latency**  
+
+After optimization, further improvements observed due to:
+
+- Reduced Python overhead (async execution)  
+- Zero-copy memory reuse  
+- Parallel execution across threads  
+
+This module, combined with the **Real-Time GeoTask Dispatcher**, forms the **core intelligence layer** of the UAV flood monitoring system.
+
+---
+
+
+
 
 ## ⚡ Performance & Latency
 
