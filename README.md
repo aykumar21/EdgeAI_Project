@@ -454,9 +454,8 @@ After simulation, the system was deployed on real hardware.
 
 TAKEOFF → WAYPOINTS → RTL
 
-
-<img width="1206" height="595" alt="20 05 2025_18 51 28_REC" src="https://github.com/user-attachments/assets/a4ad1a12-2098-40cf-bcd4-3729cf3df7df" />
 <img width="363" height="376" alt="fly" src="https://github.com/user-attachments/assets/39443e08-bed7-48e2-9267-1d3405b90cb1" />
+<img width="1206" height="595" alt="20 05 2025_18 51 28_REC" src="https://github.com/user-attachments/assets/a4ad1a12-2098-40cf-bcd4-3729cf3df7df" />
 
 
 ---
