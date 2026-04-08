@@ -388,7 +388,6 @@ Published to:
 
 /mavros/setpoint_position/global
 
-<img width="1536" height="1024" alt="ChatGPT Image May 17, 2025, 01_33_03 PM" src="https://github.com/user-attachments/assets/286e55d7-4a3f-4e22-896f-5d24c643b3d2" />
 <img width="1920" height="1030" alt="21 04 2025_13 08 09_REC" src="https://github.com/user-attachments/assets/bd5df132-b713-447d-9288-60bfde8a5308" />
 
 
@@ -397,6 +396,7 @@ Published to:
 ### B. Real-World Deployment
 
 After simulation, the system was deployed on real hardware.
+<img width="1536" height="1024" alt="ChatGPT Image May 17, 2025, 01_33_03 PM" src="https://github.com/user-attachments/assets/286e55d7-4a3f-4e22-896f-5d24c643b3d2" />
 
 #### 🧩 Hardware
 - Pixhawk Flight Controller  
