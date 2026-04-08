@@ -1,4 +1,4 @@
-# 🚁 Edge AI-Enabled Autonomous UAV for Real-Time Flood Detection & GPS Mapping
+# 🚁 Edge AI-Enabled Autonomous UAV for Real-Time Flood Detection & Geospatial GPS Mapping in Disaster Response
 
 ## 📌 Overview
 
