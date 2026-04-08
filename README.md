@@ -536,7 +536,7 @@ Preprocessing → Inference → GPS Conversion
 - 355.63 ms → **15.40 ms**
 - ✅ **95.82% improvement**
 
-<img width="488" height="437" alt="unet_optimized" src="https://github.com/user-attachments/assets/09c73d44-6377-4042-8d34-e005bd788124" />
+<img width="387" height="352" alt="unet_optimized" src="https://github.com/user-attachments/assets/09c73d44-6377-4042-8d34-e005bd788124" />
 
 
 ---
