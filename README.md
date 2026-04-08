@@ -686,6 +686,6 @@ Fallback Actions:
 * Ayush Pratap
 * Pao-Ann Hsiung
 
-Department of Computer Science and Information Engineering
+Department of Computer Science and Information Engineering,
 National Chung Cheng University, Taiwan
 
