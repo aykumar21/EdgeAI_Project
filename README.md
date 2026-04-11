@@ -21,7 +21,7 @@ The UAV can:
 * Dynamically update mission waypoints
 * Navigate autonomously without human intervention
 
-<img width="1002" height="451" alt="newfm_final (2)" src="https://github.com/user-attachments/assets/522152d7-048a-4e15-9360-2a3ec040e213" />
+<img width="1151" height="631" alt="UAVFramework drawio (1)" src="https://github.com/user-attachments/assets/df1c7df5-fef9-4c4c-ae63-9e70377da0ce" />
 
 
 ---
