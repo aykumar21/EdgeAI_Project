@@ -390,6 +390,9 @@ TAKEOFF → WAYPOINTS → RTL
 * Stable UAV flight with AI control
 * No human intervention required
 
+Demo Video Link:
+https://drive.google.com/file/d/1uo6OgZUHK_WJVPmG6mCN60SWfuUq5IDi/view?usp=sharing
+
 ---
 
 ## 🔬 Research Contributions
