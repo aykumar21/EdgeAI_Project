@@ -307,7 +307,7 @@ These experiments demonstrate feasibility but do **not** constitute large-scale 
 - **U-Net** is preferred in simulation for stable, high-frequency operation.
 
 <img width="1349" height="1166" alt="new_enhanced" src="https://github.com/user-attachments/assets/37858e66-09c2-4cea-8c51-70a33eeca652" />
-
+Onboard flood detection outputs showing U-Net (top row) and DeepLabv3+ (bottom row) real-time inference logs with latency and FPS overlaid on live UAV camera imagery.
 
 ---
 
