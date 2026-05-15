@@ -13,6 +13,11 @@ The framework integrates:
 - **Jetson Nano edge deployment**
 - **Real-Time GeoTask Dispatcher (MQTT → PX4 waypoints)**
 
+
+<img width="1056" height="544" alt="descriptive_fm (1)" src="https://github.com/user-attachments/assets/0b2d72fc-d70f-4ce4-8221-c9e965005fe6" />
+
+
+
 The UAV stack can:
 
 - Detect flooded regions in (near) real time
@@ -280,7 +285,7 @@ After SITL validation, the pipeline is ported to:
 - **Pixhawk** flight controller  
 - **NVIDIA Jetson Nano** companion computer  
 
-ROS 2 nodes run on the Jetson Nano with minimal changes from the simulation setup. In hardware-in-the-loop and short outdoor tests:
+ROS 2 nodes run on the Jetson Nano with minimal changes from the simulation setup. In hardware-in-the-loop:
 
 - Camera → AI detection → GPS conversion  
 - Real-time waypoint updates via the GeoTask Dispatcher  
@@ -300,6 +305,9 @@ These experiments demonstrate feasibility but do **not** constitute large-scale 
 - TensorRT FP16 with GPU acceleration yields **sub-20 ms** segmentation inference on Jetson Nano.
 - **DeepLabv3+** is preferred for real-world imagery due to better segmentation robustness.
 - **U-Net** is preferred in simulation for stable, high-frequency operation.
+
+<img width="1349" height="1166" alt="new_enhanced" src="https://github.com/user-attachments/assets/37858e66-09c2-4cea-8c51-70a33eeca652" />
+
 
 ---
 
