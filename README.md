@@ -1,4 +1,4 @@
-# 🚁 Prototype Closed-Loop Edge-AI UAV System for Flood Monitoring and GPS-Guided Response
+# 🚁 Development of a Prototype Closed-Loop Edge-AI UAV System for Flood Response
 
 ## 📌 Overview
 
@@ -306,7 +306,7 @@ These experiments demonstrate feasibility but do **not** constitute large-scale 
 - **DeepLabv3+** is preferred for real-world imagery due to better segmentation robustness.
 - **U-Net** is preferred in simulation for stable, high-frequency operation.
 
-<img width="1349" height="1166" alt="new_enhanced" src="https://github.com/user-attachments/assets/37858e66-09c2-4cea-8c51-70a33eeca652" />
+<img width="1303" height="1125" alt="image" src="https://github.com/user-attachments/assets/3e60464b-1646-4341-89f0-94bd24baca13" />
 Onboard flood detection outputs showing U-Net (top row) and DeepLabv3+ (bottom row) real-time inference logs with latency and FPS overlaid on live UAV camera imagery.
 
 ---
