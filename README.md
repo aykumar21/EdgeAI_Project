@@ -332,14 +332,4 @@ https://drive.google.com/file/d/1uo6OgZUHK_WJVPmG6mCN60SWfuUq5IDi/view?usp=shari
 - Real-Time GeoTask Dispatcher for dynamic GPS waypoint injection
 - Fault-tolerant control with autonomous fallback behaviors
 
----
 
-## 👨‍💻 Authors
-
-- Ayush Kumar  
-- Huang Po Chun  
-- Ayush Pratap  
-- Pao-Ann Hsiung  
-
-Department of Computer Science and Information Engineering,  
-National Chung Cheng University, Taiwan
